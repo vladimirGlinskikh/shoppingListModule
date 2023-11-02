@@ -37,7 +37,7 @@
 <div class="container">
     <form method="post" th:action="@{/}" th:object="${item}">
         <div class="input-group mb-3 mt-3">
-            <input type="text"  class="form-control" placeholder="Название новой покупки" aria-label="Название новой покупки" aria-describedby="basic-addon2">
+            <input type="text" th:field="*{name}" class="form-control" placeholder="Название новой покупки" aria-label="Название новой покупки" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <button class="btn btn-outline-primary" type="submit">Добавить</button>
             </div>
@@ -55,7 +55,7 @@
         <tbody>
         <tr th:each="item : ${items}">
             <th scope="row" th:text="${item.id}">1</th>
-            <td th:text="${item.name}">Мясо</td>
+            <td th:text="${item.name}"></td>
             <td>
                 <form th:action="@{/{id}(id = ${item.id})}" th:method="delete">
                     <button type="submit" class="btn btn-outline-danger">Удалить</button>
